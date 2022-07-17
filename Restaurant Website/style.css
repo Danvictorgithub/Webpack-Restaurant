@@ -67,7 +67,7 @@ ul > *:hover {
 /* Menu Page */
 .menu-page {
     display:grid;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: 1.5fr 400px;
 }
 .main-dish {
     height:100%;
@@ -111,4 +111,13 @@ ul > *:hover {
 }
 .m1,.m2 {
     text-align: center;
+}
+.card {
+}
+.card-list {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr)) 
+}
+.card img {
+    height: 200px;
 }
