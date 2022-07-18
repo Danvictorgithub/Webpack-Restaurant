@@ -1,5 +1,4 @@
 const path = require('path');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: 'development',
@@ -7,12 +6,25 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clear:'true',
   },
-  optimization: {
-    minimizer: [
-      optimization.minimize = true,
-      new CssMinimizerPlugin(),
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.png/,
+        type: 'asset/resource'
+      }
     ],
   },
 };
